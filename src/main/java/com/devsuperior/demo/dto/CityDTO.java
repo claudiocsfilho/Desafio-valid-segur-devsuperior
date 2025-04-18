@@ -1,16 +1,15 @@
 package com.devsuperior.demo.dto;
 
 import com.devsuperior.demo.entities.City;
-
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.validation.constraints.NotBlank;
 
 public class CityDTO {
 	
 	private Long id;
+
+	@NotBlank(message = "Campo requerido")
 	private String name;
 
-	private List<EventDTO> events = new ArrayList<>();
 
 	public CityDTO() {
 	}
@@ -41,7 +40,4 @@ public class CityDTO {
 		this.name = name;
 	}
 
-	public List<EventDTO> getEvents() {
-		return events;
-	}
 }
