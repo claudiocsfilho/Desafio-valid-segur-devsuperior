@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -40,6 +41,20 @@ public class ResouceServerConfig {
         return http.build();
     }
 
+//    @Bean
+//    @Order(3)
+//    public SecurityFilterChain rsSecurityFilterChain(HttpSecurity http) throws Exception {
+//        http.csrf(csrf -> csrf.disable());
+//        http.authorizeHttpRequests(authorize -> authorize
+//                .requestMatchers(HttpMethod.POST, "/cities").authenticated()
+//                .requestMatchers(HttpMethod.PUT, "/cities/**").authenticated()
+//                .requestMatchers(HttpMethod.DELETE, "/cities/**").authenticated()
+//                .anyRequest().permitAll());
+//        http.oauth2ResourceServer(oauth2 -> oauth2
+//                .jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthenticationConverter())));
+//        http.cors(cors -> cors.configurationSource(corsConfigurationSource()));
+//        return http.build();
+//    }
     @Bean
     @Order(3)
     public SecurityFilterChain rsSecurityFilterChain(HttpSecurity http) throws Exception {
